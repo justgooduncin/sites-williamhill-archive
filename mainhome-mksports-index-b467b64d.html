@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MK体育 – 产品说明页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f2f4f7;
+      color: #2b2f3a;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 1024px;
+      margin: 0 auto;
+    }
+
+    /* hero 区域 */
+    .hero {
+      background: linear-gradient(145deg, #ffffff 0%, #f9fafc 100%);
+      border-radius: 28px;
+      padding: 3rem 2.5rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      transition: box-shadow 0.2s;
+    }
+
+    .hero:hover {
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #1e232b;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #505866;
+      max-width: 680px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero .tagline {
+      display: inline-block;
+      background: #e8ebf0;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      color: #3b4251;
+      font-weight: 500;
+    }
+
+    /* 卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.6rem;
+      margin: 2.5rem 0;
+    }
+
+    @media (max-width: 640px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+
+      .hero {
+        padding: 2rem 1.5rem;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.6rem 1.8rem 1.8rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);
+      border: 1px solid #e4e8ef;
+      transition: all 0.2s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+      border-color: #d0d6e0;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #1f2630;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .card p,
+    .card li {
+      font-size: 0.95rem;
+      color: #404754;
+    }
+
+    .card ul {
+      padding-left: 1.2rem;
+      margin-top: 0.2rem;
+    }
+
+    .card ul li {
+      margin-bottom: 0.2rem;
+    }
+
+    .highlight-card {
+      background: #ffffff;
+      border-left: 4px solid #8391a8;
+    }
+
+    /* 使用建议 / 场景区块 */
+    .section-block {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2rem 2.2rem;
+      margin: 2rem 0;
+      border: 1px solid #e4e8ef;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02);
+    }
+
+    .section-block h2 {
+      font-size: 1.5rem;
+      font-weight: 550;
+      margin-bottom: 1rem;
+      color: #1a202a;
+      letter-spacing: -0.01em;
+    }
+
+    .two-col-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem 2.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .two-col-list .item {
+      flex: 1 1 200px;
+    }
+
+    .two-col-list .item strong {
+      display: block;
+      font-weight: 600;
+      color: #2d3542;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-mini {
+      background: #f7f9fc;
+      border-radius: 18px;
+      padding: 1.4rem 1.8rem;
+      margin: 2rem 0 1rem;
+      border: 1px solid #dee3ec;
+    }
+
+    .faq-mini details {
+      margin-bottom: 0.4rem;
+      border-bottom: 1px solid #eef1f6;
+      padding: 0.5rem 0;
+    }
+
+    .faq-mini details:last-of-type {
+      border-bottom: none;
+    }
+
+    .faq-mini summary {
+      font-weight: 500;
+      cursor: default;
+      color: #2c3545;
+      padding: 0.2rem 0;
+      font-size: 0.95rem;
+    }
+
+    .faq-mini details p {
+      margin: 0.3rem 0 0.2rem;
+      font-size: 0.9rem;
+      color: #545d6b;
+    }
+
+    .link-sentence {
+      background: #edeff4;
+      border-radius: 60px;
+      padding: 0.7rem 1.8rem;
+      display: inline-block;
+      margin-top: 0.2rem;
+      font-size: 0.95rem;
+      border: 1px solid #d9dee8;
+    }
+
+    .link-sentence a {
+      color: #1f4f8a;
+      text-decoration: none;
+      font-weight: 550;
+      border-bottom: 1px dotted #8f9eb3;
+    }
+
+    .link-sentence a:hover {
+      border-bottom: 2px solid #1f4f8a;
+    }
+
+    .footnote {
+      margin-top: 2.8rem;
+      text-align: center;
+      font-size: 0.82rem;
+      color: #6c7585;
+      border-top: 1px solid #dde2eb;
+      padding-top: 1.8rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #dfe4ed;
+      margin: 1.2rem 0;
+    }
+
+    .badge {
+      background: #eef1f7;
+      border-radius: 12px;
+      padding: 0.1rem 0.6rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #4b5565;
+      margin-left: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- hero / 摘要 -->
+  <div class="hero">
+    <span class="tagline">产品说明页 · 稳定访问入口</span>
+    <h1>MK体育 · 信息与定位</h1>
+    <div class="sub">
+      一份围绕平台特点、使用场景以及访问引导的说明摘要。内容力求清晰平实，帮助使用者快速建立认知。
+    </div>
+    <div class="link-sentence">
+      如希望直接浏览，可使用 <a href="https://mainhome-mksports.com">MK体育</a> 前往主站。
+    </div>
+  </div>
+
+  <!-- 两列卡片：亮点 + 特点 -->
+  <div class="card-grid">
+
+    <div class="card">
+      <h3>⚙️ 结构特点</h3>
+      <ul>
+        <li>页面布局侧重信息清晰与入口稳定</li>
+        <li>内容区域分区明确，便于快速查找</li>
+        <li>适配主流设备，响应式过渡自然</li>
+        <li>轻量化框架，加载耗用较低</li>
+      </ul>
+    </div>
+
+    <div class="card highlight-card">
+      <h3>📌 核心亮点</h3>
+      <ul>
+        <li>以简洁导航降低浏览干扰</li>
+        <li>内容层级经过梳理，分类直观</li>
+        <li>适合初次了解或常规使用</li>
+        <li>持续维护，保持基础可用性</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- 场景 / 使用建议区块 -->
+  <div class="section-block">
+    <h2>🔄 常见使用场景</h2>
+    <div class="two-col-list">
+      <div class="item">
+        <strong>信息查阅</strong>
+        通过分类标签快速定位感兴趣版块，减少滚动耗时。
+      </div>
+      <div class="item">
+        <strong>常规访问</strong>
+        适合将链接保存在书签，作为日常访问的稳定入口。
+      </div>
+      <div class="item">
+        <strong>功能探索</strong>
+        初次使用者可依次浏览各分区，了解提供的内容类型及结构。
+      </div>
+      <div class="item">
+        <strong>对比参考</strong>
+        将 <a href="https://mainhome-mksports.com" style="color:#1f4f8a; text-decoration:none; border-bottom:1px dotted #a0aec0;">MK体育</a> 与其他信息源对照，辅助判断。
+      </div>
+    </div>
+  </div>
+
+  <!-- 可信但克制的访问说明 + 提示 -->
+  <div class="section-block" style="padding-bottom: 1.6rem;">
+    <h2>🧭 访问说明与提示</h2>
+    <p style="margin-bottom: 0.8rem;">
+      本页仅作为产品说明及信息参考。在访问链接前，建议自行确认网络环境与设备配置。页面内容保持客观，不包含诱导性或夸大描述。
+    </p>
+    <ul style="padding-left: 1.4rem; margin-bottom: 0.5rem; color: #3d4657;">
+      <li>链接指向的外部页面，其内容与管理方可能随时变化。</li>
+      <li>建议根据需要自行判断访问时机与频率。</li>
+      <li>未收集任何用户信息，页内无跟踪脚本。</li>
+    </ul>
+
+    <!-- 将链接自然嵌入句子（第二处出现） -->
+    <div style="margin-top: 1.2rem; background: #f2f5fa; padding: 0.6rem 1.2rem; border-radius: 40px; display: inline-block;">
+      <span style="font-size:0.95rem;">🔗 如需直接访问，可由此前往 <a href="https://mainhome-mksports.com">MK体育</a> (独立页面)。</span>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="faq-mini">
+    <h3 style="font-weight: 550; font-size:1.1rem; margin-bottom: 0.3rem;">❓ 常见问题摘要</h3>
+
+    <details>
+      <summary>页面是否长期可用？</summary>
+      <p>本说明页为静态页面，托管于 GitHub Pages，无主动下线计划。但链接指向的外部站点可能因维护或政策调整而变更，请留意。</p>
+    </details>
+
+    <details>
+      <summary>是否有推荐的上网方式？</summary>
+      <p>使用常规浏览器即可正常访问，无需额外插件。网络连接稳定时体验更佳。</p>
+    </details>
+
+    <details>
+      <summary>链接安全吗？</summary>
+      <p>链接指向域名 mainhome-mksports.com，采用 HTTPS 传输。建议用户自行判断并遵守当地法规。</p>
+    </details>
+
+    <details>
+      <summary>为什么使用“产品说明”形式？</summary>
+      <p>为了提高信息组织效率，帮助访客在阅读后对平台形成清晰、客观的初步印象，减少盲目访问。</p>
+    </details>
+  </div>
+
+  <!-- 结尾 -->
+  <div class="footnote">
+    <span>本页为独立说明页面 · 内容最后整理于近期</span><br>
+    <span style="font-size:0.75rem; color:#8a94a4;">使用卡片式布局 · 浅灰背景 · 信息克制呈现</span>
+  </div>
+
+</div>
+</body>
+</html>
